@@ -1,137 +1,100 @@
 import Link from "next/link";
+import { Container } from "../../components/container";
+import { BannerSecundario } from "../../components/banner";
+import { TituloSeccion } from "../../components/titulo";
 
-function Banner() {
-    return (
-        // <!-- Start Hero Section -->
-        <div className="bg-nosotros bg-cover pt-[98px] lg:pr-0 x:pb-36 lg:pb-0">
-            <div className="max-w-[1320px] mx-auto">
-                <div className="flex flex-wrap mt-0 mx-[-12] justify-between">
-                    <div className="lg:w-[50%] w-full px-3">
-                        <div className="relative max-w-xl z-[4]">
-                            <h1 className="text-white text-4xl lg:text-5xl font-bold mb-[30px] leading-10 lg:leading-[3.5rem]">
-                                Acerca de <br />
-                                <span className="d-block">Nosotros</span>
-                            </h1>
-                            <div className="bg-black bg-opacity-35 rounded-2xl px-3 py-3 mb-10" >
-                                <p className="text-paragraph text-md  leading-6 text-white ">
-                                Descubre el auténtico sabor de la cocina criolla en nuestro restaurante. Con platos tradicionales y sabores únicos, te llevaremos en un viaje culinario a través de las raíces de 
-                                nuestra cultura. Disfruta de la frescura de nuestros ingredientes locales y deléitate con la calidez de nuestro ambiente. En cada bocado, encontrarás la pasión y el amor por nuestra 
-                                herencia gastronómica. ¡Bienvenido a una experiencia gastronómica criolla inolvidable!
-                            </p>
-                            </div>                            
-                            <p className="mb-4">
-                                <Link href="/ordenar" className="btn bg-orderNow font-semibold pt-3 pr-8 pb-3 pl-8 rounded-[30px] mr-2 text-white" >
-                                    Pedir Ahora
-                                </Link>
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex relative lg:w-[50%] w-full">
-                        {/* <div className="hidden lg:block xs:overflow-x-hidden after:absolute x:after:w-[255px] x:after:h-[217px] lg:after:w-[255px] lg:after:h-[217px] after:bg-bannerRight after:bg-contain after:bg-no-repeat after:right-[-60px] lg:after:right-[0px] lg:after:top-[-20px] x:after:right-[-60px] x:after:top-[-60px] xl:after:right-[0px] 2xl:after:right-[-60px]">
-                            <img
-                                src="assets/muebles/mesa_para_tv.png"
-                                className="x:absolute lg:relative left-0 x:max-w-[780px] xl:max-w-[680px] 2xl:max-w-[780px] lg:max-w-[650px] h-auto align-middle box-border z-[2] x:top-[-100px] lg:top-[-50px] lg:right-[-100px]"
-                            />
-                        </div> */}
-                    </div>
-                </div>
-            </div>
-        </div>
-        // <!-- End Hero Section -->
-    );
-}
 
 function WhyChoose() {
     return (
-        <div className="max-w-screen-xl mx-auto my-12 px-6">
-            <div className="flex justify-center w-full">
-                <h1 className="text-4xl poppins pb-4">Por qué escogernos</h1>
-            </div>
+        <section className="py-10">
+            <Container>
+                <TituloSeccion className="text-center" texto={"Por qué escogernos"} />
 
-            <div className="flex">
-                <p className="text-gray-500 text-sm poppins w-2/4 mx-3">
-                    <ul className="list-disc">
-                        <li><span className="font-bold">Ingredientes frescos y de calidad:</span>  Nos comprometemos a utilizar ingredientes frescos y de la más alta calidad en cada uno de nuestros platos, garantizando un sabor excepcional en cada bocado.</li>
-                        <li><span className="font-bold">Variedad de opciones para todos los gustos:</span> Ya sea que prefieras opciones vegetarianas, veganas, sin gluten o platos tradicionales, nuestra amplia variedad de opciones de menú seguramente satisfará todos los paladares.</li>
-                    </ul>
-                </p>
-                <p className="text-gray-500 text-sm poppins w-2/4 mx-3">
-                    <ul className="list-disc">
-                        <li><span className="font-bold">Ambiente acogedor y elegante:</span> Disfruta de una atmósfera cálida y acogedora en nuestro restaurante, diseñado para brindarte una experiencia memorable en un entorno elegante y relajante.</li>
-                        <li><span className="font-bold">Ubicación conveniente:</span> Situado en un lugar de fácil acceso, nuestro restaurante es el destino perfecto para una comida deliciosa en cualquier momento del día.</li>
-                    </ul>
-                </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-8">
-                <div className="bg-white transform transition duration-700 hover:scale-105 p-6 rounded-2xl hover:shadow-xl">
-                    <div className="overflow-hidden rounded-2xl flex flex-grow">
-                        <img className="transform transition duration-700 hover:scale-125" src="/assets/nosotros/nosotros1.png" alt="Fast Delivery" />
+                <div className="flex space-x-1">
+                    <div className="text-gray-500 text-sm poppins w-2/4 mx-3">
+                        <ul className="list-disc">
+                            <li><span className="font-bold leading-8">Ingredientes frescos y de calidad:</span>  Nos comprometemos a utilizar ingredientes frescos y de la más alta calidad en cada uno de nuestros platos, garantizando un sabor excepcional en cada bocado.</li>
+                            <li><span className="font-bold leading-8">Variedad de opciones para todos los gustos:</span> Ya sea que prefieras opciones vegetarianas, veganas, sin gluten o platos tradicionales, nuestra amplia variedad de opciones de menú seguramente satisfará todos los paladares.</li>
+                        </ul>
                     </div>
-                    <div className="flex mt-6 space-x-3 ">
-                        <div>
-                            <img src="/assets/icons/Group 204.png" alt="Fast Delivery" className="w-36" />
-                        </div>
-                        <div className="flex flex-col space-y-3">
-                            <h1 className="text-xl text-gray-800 poppins">Atención al cliente excepcional</h1>
-                            <p className="text-sm text-gray-500 poppins">
-                                Nuestro equipo está dedicado a proporcionar un servicio impecable y una atención personalizada a cada cliente, asegurando que tu visita sea inolvidable desde el momento en que entras por la puerta
-                            </p>
-                        </div>
+                    <div className="text-gray-500 text-sm poppins w-2/4 mx-3">
+                        <ul className="list-disc">
+                            <li><span className="font-bold leading-8">Ambiente acogedor y elegante:</span> Disfruta de una atmósfera cálida y acogedora en nuestro restaurante, diseñado para brindarte una experiencia memorable en un entorno elegante y relajante.</li>
+                            <li><span className="font-bold leading-8">Ubicación conveniente:</span> Situado en un lugar de fácil acceso, nuestro restaurante es el destino perfecto para una comida deliciosa en cualquier momento del día.</li>
+                        </ul>
                     </div>
                 </div>
-                <div className="bg-white transform transition duration-700 hover:scale-105 p-6 rounded-2xl hover:shadow-xl">
-                    <div className="overflow-hidden rounded-2xl flex flex-grow">
-                        <img
-                            className="transform transition duration-700 hover:scale-125"
-                            src="assets/nosotros/nosotros2.png"
-                            alt="A Good Auto Responder"
-                        />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-8">
+                    <div className="bg-white transform transition duration-700 hover:scale-105 p-6 rounded-2xl hover:shadow-xl">
+                        <div className="overflow-hidden rounded-2xl flex flex-grow">
+                            <img className="transform transition duration-700 hover:scale-125" src="/assets/nosotros/nosotros1.png" alt="Fast Delivery" />
+                        </div>
+                        <div className="flex mt-6 space-x-3 ">
+                            <div>
+                                <img src="/assets/icons/Group 204.png" alt="Fast Delivery" className="w-36" />
+                            </div>
+                            <div className="flex flex-col space-y-3">
+                                <h1 className="text-xl text-gray-800 poppins">Atención al cliente excepcional</h1>
+                                <p className="text-sm text-gray-500 poppins">
+                                    Nuestro equipo está dedicado a proporcionar un servicio impecable y una atención personalizada a cada cliente, asegurando que tu visita sea inolvidable desde el momento en que entras por la puerta
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex mt-6 space-x-3 ">
-                        <div>
+                    <div className="bg-white transform transition duration-700 hover:scale-105 p-6 rounded-2xl hover:shadow-xl">
+                        <div className="overflow-hidden rounded-2xl flex flex-grow">
                             <img
-                                src="/assets/icons/Group 1133.png"
+                                className="transform transition duration-700 hover:scale-125"
+                                src="assets/nosotros/nosotros2.png"
                                 alt="A Good Auto Responder"
-                                className="w-36"
                             />
                         </div>
-                        <div className="flex flex-col space-y-3">
-                            <h1 className="text-xl text-gray-800 poppins">
-                                Experiencia culinaria excepcional
-                            </h1>
-                            <p className="text-sm text-gray-500 poppins">
-                                Sumérgete en una experiencia gastronómica única con nuestra selección de platos cuidadosamente elaborados por chefs expertos
-                            </p>
+                        <div className="flex mt-6 space-x-3 ">
+                            <div>
+                                <img
+                                    src="/assets/icons/Group 1133.png"
+                                    alt="A Good Auto Responder"
+                                    className="w-36"
+                                />
+                            </div>
+                            <div className="flex flex-col space-y-3">
+                                <h1 className="text-xl text-gray-800 poppins">
+                                    Experiencia culinaria excepcional
+                                </h1>
+                                <p className="text-sm text-gray-500 poppins">
+                                    Sumérgete en una experiencia gastronómica única con nuestra selección de platos cuidadosamente elaborados por chefs expertos
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="bg-white transform transition duration-700 hover:scale-105 p-6 rounded-2xl hover:shadow-xl">
-                    <div className="overflow-hidden rounded-2xl flex flex-grow">
-                        <img
-                            className="transform transition duration-700 hover:scale-125"
-                            src="assets/nosotros/nosotros3.png"
-                            alt="Home Delivery"
-                        />
-                    </div>
-                    <div className="flex mt-6 space-x-3 ">
-                        <div>
+                    <div className="bg-white transform transition duration-700 hover:scale-105 p-6 rounded-2xl hover:shadow-xl">
+                        <div className="overflow-hidden rounded-2xl flex flex-grow">
                             <img
-                                src="/assets/icons/Group 245.png"
+                                className="transform transition duration-700 hover:scale-125"
+                                src="assets/nosotros/nosotros3.png"
                                 alt="Home Delivery"
-                                className="w-36"
                             />
                         </div>
-                        <div className="flex flex-col space-y-3">
-                            <h1 className="text-xl text-gray-800 poppins">Compromiso con la sostenibilidad</h1>
-                            <p className="text-sm text-gray-500 poppins">
-                                Nos preocupamos por el medio ambiente y nos esforzamos por operar de manera sostenible, utilizando prácticas respetuosas con el medio ambiente en todas nuestras operaciones.
-                            </p>
+                        <div className="flex mt-6 space-x-3 ">
+                            <div>
+                                <img
+                                    src="/assets/icons/Group 245.png"
+                                    alt="Home Delivery"
+                                    className="w-36"
+                                />
+                            </div>
+                            <div className="flex flex-col space-y-3">
+                                <h1 className="text-xl text-gray-800 poppins">Compromiso con la sostenibilidad</h1>
+                                <p className="text-sm text-gray-500 poppins">
+                                    Nos preocupamos por el medio ambiente y nos esforzamos por operar de manera sostenible, utilizando prácticas respetuosas con el medio ambiente en todas nuestras operaciones.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </Container>
+        </section>
     );
 }
 
@@ -155,9 +118,9 @@ function Team() {
                             className="max-w-full h-auto mb-12 align-middle"
                         />
                         <h3 className="text-[1.75rem] mt-0 mb-2 font-medium leading-[1.2rem]">
-                            <a href="#" className="text-primary underline">
+                            <Link href="#" className="text-primary underline">
                                 <span className="">Lawson</span> Arnold
-                            </a>
+                            </Link>
                         </h3>
                         <span className="block mb-6">CEO, Founder, Atty.</span>
                         <p className="mt-0 mb-0 lg:mb-4">
@@ -165,9 +128,9 @@ function Team() {
                             right at the coast of the Semantics, a large language ocean.
                         </p>
                         <p className="mb-0 mt-0">
-                            <a href="#" className="font-semibold underline text-primary">
+                            <Link href="#" className="font-semibold underline text-primary">
                                 Leer más <span className=""></span>
-                            </a>
+                            </Link>
                         </p>
                     </div>
                     {/* <!-- End Column 1 --> */}
@@ -180,9 +143,9 @@ function Team() {
                         />
 
                         <h3 className="text-[1.75rem] mt-0 mb-2 font-medium leading-[1.2rem]">
-                            <a href="#" className="text-primary underline">
+                            <Link href="#" className="text-primary underline">
                                 <span className="">Jeremy</span> Walker
-                            </a>
+                            </Link>
                         </h3>
                         <span className="block mb-6">CEO, Founder, Atty.</span>
                         <p className="mt-0 mb-0 lg:mb-4">
@@ -190,9 +153,9 @@ function Team() {
                             right at the coast of the Semantics, a large language ocean.
                         </p>
                         <p className="mb-0 mt-0">
-                            <a href="#" className="font-semibold underline text-primary">
+                            <Link href="#" className="font-semibold underline text-primary">
                                 Learn More <span className=""></span>
-                            </a>
+                            </Link>
                         </p>
                     </div>
                     {/* <!-- End Column 2 --> */}
@@ -204,9 +167,9 @@ function Team() {
                             className="max-w-full h-auto mb-12 align-middle"
                         />
                         <h3 className="text-[1.75rem] mt-0 mb-2 font-medium leading-[1.2rem]">
-                            <a href="#" className="text-primary underline">
+                            <Link href="#" className="text-primary underline">
                                 <span className="">Patrik</span> White
-                            </a>
+                            </Link>
                         </h3>
                         <span className="block mb-6">CEO, Founder, Atty.</span>
                         <p className="mt-0 mb-0 lg:mb-4">
@@ -214,9 +177,9 @@ function Team() {
                             right at the coast of the Semantics, a large language ocean.
                         </p>
                         <p className="mb-0 mt-0">
-                            <a href="#" className="font-semibold underline text-primary">
+                            <Link href="#" className="font-semibold underline text-primary">
                                 Learn More <span className=""></span>
-                            </a>
+                            </Link>
                         </p>
                     </div>
                     {/* <!-- End Column 3 --> */}
@@ -229,9 +192,9 @@ function Team() {
                         />
 
                         <h3 className="text-[1.75rem] mt-0 mb-2 font-medium leading-[1.2rem]">
-                            <a href="#" className="text-primary underline">
+                            <Link href="#" className="text-primary underline">
                                 <span className="">Kathryn</span> Ryan
-                            </a>
+                            </Link>
                         </h3>
                         <span className="block mb-6">CEO, Founder, Atty.</span>
                         <p className="mt-0 mb-0 lg:mb-4">
@@ -239,9 +202,9 @@ function Team() {
                             right at the coast of the Semantics, a large language ocean.
                         </p>
                         <p className="mb-0 mt-0">
-                            <a href="#" className="font-semibold underline text-primary">
+                            <Link href="#" className="font-semibold underline text-primary">
                                 Learn More <span className=""></span>
-                            </a>
+                            </Link>
                         </p>
                     </div>
                     {/* <!-- End Column 4 --> */}
@@ -542,7 +505,15 @@ function Testimonials() {
 export default function nosotros() {
     return (
         <>
-            <Banner />
+            <BannerSecundario
+                fondo={"bg-nosotros"}
+                titulo={" Pedir Ahora"}
+                descripcion={`Descubre el auténtico sabor de la cocina criolla en nuestro restaurante. Con platos tradicionales y sabores únicos, te llevaremos en un viaje culinario a través de las raíces de
+                nuestra cultura. Disfruta de la frescura de nuestros ingredientes locales y deléitate con la calidez de nuestro ambiente. En cada bocado, encontrarás la pasión y el amor por nuestra
+                herencia gastronómica. ¡Bienvenido a una experiencia gastronómica criolla inolvidable!`}
+                textoBotom={"Pedir Ahora"}
+                rutaBotom={"/"}
+            />
 
             <WhyChoose />
 

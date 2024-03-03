@@ -1,13 +1,14 @@
 import Image from "next/image";
 // import { LogoOftalmogia2 } from "../lib/images";
 import Link from "next/link";
+import { Container } from "./container";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-gray-800 px-6 py-12">
-      <div className=" max-w-screen-xl mx-auto px-6">
+      <Container>
         <div className="flex pb-8">
           <div className="flex flex-grow">
             <div>
@@ -56,7 +57,7 @@ export default function Footer() {
             <span className="poppins text-white cursor-pointer">Pricing</span>
           </div> */}
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

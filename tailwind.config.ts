@@ -2,10 +2,10 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    'node_modules/flowbite-react/lib/esm/**/*.js'
   ],
+  darkMode: "media",
   theme: {
     extend: {
       backgroundColor:{
@@ -26,6 +26,7 @@ const config: Config = {
         'nosotros': "url('/assets/nosotros.jpg')",
         'pedirAhora': "url('/assets/pedirAhora.jpg')",
         'locales': "url('/assets/locales.jpg')",
+        'banner': "url('/assets/banner.jpg')",
       },
       colors: {
         primary: "#2f2f2f",
@@ -78,6 +79,8 @@ const config: Config = {
       "2xl": "1536px",
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
 export default config

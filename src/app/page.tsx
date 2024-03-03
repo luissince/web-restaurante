@@ -1,169 +1,284 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
+import { CustomModalForm } from "../components/modal/modal";
+import { Container } from "../components/container";
+import { BannerPrincipal } from "../components/banner";
+import { TituloSeccion } from "../components/titulo";
+import { CardPlato } from "../components/card";
 
-function PrincipalBanner() {
+interface ItemModalProps {
+  nombre: string;
+  precio: string;
+}
+
+const ItemModal: React.FC<ItemModalProps> = ({ nombre, precio }) => {
   return (
-    <div className="-mt-24 relative w-full pt-40 lg:pt-12 lg:pb-12 px-12 bg-yellow-900 py-">
-      <div className="relative z-10 text-center py-24 md:py-48">
-        <h1 className="text-white text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-12">
-          El mejor sabor de la vida
-        </h1>
-        <a href="/ordenar" className="inline-block bg-yellow-800 text-white uppercase text-sm tracking-widest font-heading px-8 py-4 border border-white" >
-          Ver los platos 
-        </a>
+    <li>
+      <div className="flex justify-between items-center py-2 pr-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600 hover:cursor-pointer">
+        <div className="ms-2 text-sm">
+          <label htmlFor="helper-radio-4" className="font-medium text-gray-900 dark:text-gray-300">
+            <p>{nombre}</p>
+            <p id="helper-radio-text-4" className="text-sm font-normal text-gray-500 dark:text-gray-300">{precio}</p>
+          </label>
+        </div>
+
+        <div className="flex items-center h-5">
+          <input
+            id="helper-radio-4"
+            name="helper-radio"
+            type="radio"
+            value=""
+            className="w-5 h-5 text-[#de4202] bg-white border-2 border-gray-900 focus:ring-[#de4202] dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+        </div>
       </div>
-      <div className="relative z-10 mx-auto max-w-4xl flex justify-between uppercase text-white font-heading tracking-widest text-sm md:text-base">
-        <a href="/" className="border-b border-white"> Delivery </a>{" "}
-        <a href="/" className="border-b border-white"> Retiro en Tienda </a>
-      </div>
-      <img src="assets/banner.jpg" className="w-full h-full absolute inset-0 object-cover opacity-70" />
-    </div>
+    </li>
   );
 }
 
+
 function Menu() {
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const modalRef = useRef<HTMLDivElement>();
+  const modalRefPlus = useRef<HTMLButtonElement>(null);
+  const [modalCantidad, setModalCantidad] = useState(1);
+
+  function openModal() {
+    console.log("dasd")
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    const data = modalRef.current as HTMLDivElement
+    data.classList.add("close-cm")
+    data.addEventListener('animationend', () => {
+      setIsOpen(false);
+    })
+  }
+
+  function saveModal() {
+    console.log("asdasd")
+    closeModal()
+  }
+
   return (
-    <section className="my-12 max-w-screen-xl mx-auto px-6">
+    <section className=" bg-white py-10">
+      <Container>
 
-      <div className="max-w-xl mx-auto text-center py-0 md:py-5">
-        <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-6">El menú del día</h2>
-      </div>
+        <TituloSeccion className="text-center" texto={"El menú del día"} />
 
-      {/* <div className="flex items-center justify-center space-x-6">
+        <CustomModalForm
+          contentRef={(ref: any) => modalRef.current = ref}
+          isOpen={modalIsOpen}
+          onOpen={() => {
+            const bodyRef = document.body as HTMLBodyElement;
+            bodyRef.style.overflow = "hidden"
+            modalRefPlus.current?.focus();
+          }}
+          onClose={closeModal}
+          onHidden={() => {
+            const bodyRef = document.body as HTMLBodyElement;
+            bodyRef.style.overflow = "initial"
+          }}
+          contentLabel={""}
+          titleHeader={""}
+          onSubmit={saveModal}
+          body={
+            <div className="flex-1 flex w-full h-full">
+              <div className="hidden md:block flex-1 w-1/2">
+                <div className="h-full relative">
+                  <Image
+                    width={600}
+                    height={600}
+                    className="w-full h-full object-contain"
+                    src="https://tofuu.getjusto.com/orioneat-prod-resized/z28AKtxPAMdcZyb9m-1200-1200.webp"
+                    alt="Salchipapa Nación + chicha"
+                    title="Salchipapa Nación + chicha"
+                  />
+                </div>
+              </div>
+
+              <div className="hidden md:flex flex-1 flex-col">
+                <div className="h-full overflow-auto">
+                  <div className="h-full">
+                    <div className="p-4 pb-0 flex-1">
+                      <h2 className="text-xl mb-1 text-grey-darkest">Nombre del producto</h2>
+                      <div className="text-xs flex items-center mb-4 ">
+                        <i className="fas fa-map-marker-alt mr-1 text-grey-dark"></i>
+                        descripción
+                      </div>
+
+                      <span className="text-4xl text-grey-darkest ">S/63.00<span className="text-lg"> PEN</span></span>
+                    </div>
+
+                    <div className="border-b mt-3"></div>
+
+                    <div className="flex px-4 items-center justify-between mt-4">
+                      <div className="pr-2 text-base">
+                        <i className="fas fa-wifi text-green"></i> Agregamos un postre tradicional?
+                      </div>
+                      <div className="px-2 text-xs bg-gray-200 text-gray-900 rounded">
+                        <i className="text-grey-darker far fa-building"></i> Opcional
+                      </div>
+                    </div>
+
+                    <div className="">
+                      <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHelperRadioButton">
+
+                        <ItemModal nombre={"Arroz con leche 250ml"} precio={"S/ 7.00"} />
+                        <ItemModal nombre={"Mazamorra morada 250ml"} precio={"S/ 7.00"} />
+                        <ItemModal nombre={"Arroz zambito 250ml"} precio={"S/ 7.00"} />
+                        <ItemModal nombre={"Combinado 250ml"} precio={"S/ 7.00"} />
+                        <ItemModal nombre={"Picarones x 4"} precio={"S/ 7.00"} />
+
+                      </ul>
+                    </div>
+
+                    <div className="border-b mt-3"></div>
+
+                    <div className="flex px-4 items-center justify-between mt-4">
+                      <div className="pr-2 text-base">
+                        <i className="fas fa-wifi text-green"></i> Estamos colaborando con el medio ambiente, deseas curbiertos?
+                      </div>
+                      <div className="px-2 text-xs bg-gray-200 text-gray-900 rounded">
+                        <i className="text-grey-darker far fa-building"></i> Opcional
+                      </div>
+                    </div>
+
+                    <div className="">
+                      <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHelperRadioButton">
+
+                        <ItemModal nombre={"Sí, deseo cubiertos"} precio={""} />
+                        <ItemModal nombre={"No, deseo ayudar con el medio ambiente"} precio={""} />
+
+                      </ul>
+                    </div>
+
+                    <div className="border-b mt-3"></div>
+
+                    <div className="flex px-4 items-center justify-between mt-4">
+                      <div className="pr-2 text-base">
+                        <i className="fas fa-wifi text-green"></i> Instrucciones especiales
+                      </div>
+                    </div>
+
+                    <div className="flex px-4 py-4">
+                      <textarea
+                        id="message"
+                        rows={4}
+                        className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+          footer={
+            <div className="flex space-x-3">
+              <div className="flex items-center">
+                <button
+                  className="bg-black px-3 py-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 text-white font-bold  rounded-full transition duration-300 ease-in-out"
+                  type="button"
+                  ref={modalRefPlus}
+                  onClick={() => {
+                    setModalCantidad(prevCantidad => prevCantidad + 1);
+                  }}>
+                  <i className="bi bi-plus"></i>
+                </button>
+                <p className="px-4">{modalCantidad}</p>
+                <button
+                  className="bg-black px-3 py-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 text-white font-bold  rounded-full transition duration-300 ease-in-out"
+                  type="button"
+                  onClick={() => {
+                    if (modalCantidad <= 1) {
+                      return;
+                    }
+
+                    setModalCantidad(prevCantidad => prevCantidad - 1);
+                  }}>
+                  <i className="bi bi-dash"></i>
+                </button>
+              </div>
+
+              <button className="flex bg-[#de4202] p-3 rounded space-x-10" type="submit"   >
+                <div className="text-white">
+                  <i className="bi bi-cart-plus"></i> Agregar
+                </div>
+                <div>
+                  <span className="text-white">S/ 9.90</span>
+                </div>
+              </button>
+            </div>
+          }
+        />
+
+        {/* <div className="flex items-center justify-center space-x-6">
         <p className="menu_tab poppins">Breakfast</p>
         <p className="active_menu_tab poppins bg-orderNow">Lunch</p>
         <p className="menu_tab poppins">Dinner</p>
       </div> */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
-        <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-          <span className="bg-red-100 border border-red-500 rounded-full text-orderNow text-sm poppins px-4 py-1 inline-block mb-4 ">
-            Lunch
-          </span>
-          <img
-            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-            src="/assets/lunch/lunch1.png"
-            alt=""
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
+          <CardPlato
+            tipo={"Lunch"}
+            imagen="/assets/lunch/lunch1.png"
+            nombre={"Beef Steak"}
+            descripcion={"Gay one the what walk then she. Demesne mention pr"}
+            precio={"S/15.99"}
+            tituloBotom={"Pedir ahora"}
+            onClick={openModal}
           />
-          <div className="flex flex-col items-center my-3 space-y-2">
-            <h1 className="text-gray-900 poppins text-lg">Beef Steak</h1>
-            <p className="text-gray-500 poppins text-sm text-center">
-              Gay one the what walk then she. Demesne mention pr
-            </p>
-            <h2 className="text-gray-900 poppins text-2xl font-bold">$15.99</h2>
-            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-              Order Now
-            </button>
-          </div>
-        </div>
-        <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-          <span className="bg-red-100 border border-red-500 rounded-full text-orderNow text-sm poppins px-4 py-1 inline-block mb-4 ">
-            Lunch
-          </span>
-          <img
-            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-            src="/assets/lunch/lunch2.png"
-            alt=""
+
+          <CardPlato
+            tipo={"Lunch"}
+            imagen="/assets/lunch/lunch2.png"
+            nombre={"Honey with Peppers"}
+            descripcion={"Gay one the what walk then she. Demesne mention pr"}
+            precio={"S/7.99"}
+            tituloBotom={"Pedir ahora"}
           />
-          <div className="flex flex-col items-center my-3 space-y-2">
-            <h1 className="text-gray-900 poppins text-lg">
-              Honey with Peppers
-            </h1>
-            <p className="text-gray-500 poppins text-sm text-center">
-              Gay one the what walk then she. Demesne mention pr
-            </p>
-            <h2 className="text-gray-900 poppins text-2xl font-bold">$7.99</h2>
-            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-              Order Now
-            </button>
-          </div>
-        </div>
-        <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-          <span className="bg-red-100 border border-red-500 rounded-full text-orderNow text-sm poppins px-4 py-1 inline-block mb-4 ">
-            Lunch
-          </span>
-          <img
-            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-            src="/assets/lunch/lunch3.png"
-            alt=""
+
+          <CardPlato
+            tipo={"Lunch"}
+            imagen="/assets/lunch/lunch3.png"
+            nombre={"Tarrgaon Rubbed Salmon"}
+            descripcion={"Gay one the what walk then she. Demesne mention pr"}
+            precio={"S/10.99"}
+            tituloBotom={"Pedir ahora"}
           />
-          <div className="flex flex-col items-center my-3 space-y-2">
-            <h1 className="text-gray-900 poppins text-lg">
-              Tarrgaon Rubbed Salmon
-            </h1>
-            <p className="text-gray-500 poppins text-sm text-center">
-              Gay one the what walk then she. Demesne mention pr
-            </p>
-            <h2 className="text-gray-900 poppins text-2xl font-bold">$7.99</h2>
-            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-              Order Now
-            </button>
-          </div>
-        </div>
-        <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-          <span className="bg-red-100 border border-red-500 rounded-full text-orderNow text-sm poppins px-4 py-1 inline-block mb-4 ">
-            Lunch
-          </span>
-          <img
-            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-            src="/assets/lunch/lunch4.png"
-            alt=""
+
+          <CardPlato
+            tipo={"Lunch"}
+            imagen="/assets/lunch/lunch4.png"
+            nombre={"Indian Lunch"}
+            descripcion={"Gay one the what walk then she. Demesne mention pr"}
+            precio={"S/8.99"}
+            tituloBotom={"Pedir ahora"}
           />
-          <div className="flex flex-col items-center my-3 space-y-2">
-            <h1 className="text-gray-900 poppins text-lg">Indian Lunch</h1>
-            <p className="text-gray-500 poppins text-sm text-center">
-              Gay one the what walk then she. Demesne mention pr
-            </p>
-            <h2 className="text-gray-900 poppins text-2xl font-bold">$8.99</h2>
-            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-              Order Now
-            </button>
-          </div>
-        </div>
-        <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-          <span className="bg-red-100 border border-red-500 rounded-full text-orderNow text-sm poppins px-4 py-1 inline-block mb-4 ">
-            Lunch
-          </span>
-          <img
-            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-            src="/assets/lunch/lunch5.png"
-            alt=""
+
+
+          <CardPlato
+            tipo={"Lunch"}
+            imagen="/assets/lunch/lunch5.png"
+            nombre={"Fried Chicken Bento"}
+            descripcion={"Gay one the what walk then she. Demesne mention pr"}
+            precio={"S/11.99"}
+            tituloBotom={"Pedir ahora"}
           />
-          <div className="flex flex-col items-center my-3 space-y-2">
-            <h1 className="text-gray-900 poppins text-lg">
-              Fried Chicken Bento
-            </h1>
-            <p className="text-gray-500 poppins text-sm text-center">
-              Gay one the what walk then she. Demesne mention pr
-            </p>
-            <h2 className="text-gray-900 poppins text-2xl font-bold">$13.99</h2>
-            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-              Order Now
-            </button>
-          </div>
-        </div>
-        <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-          <span className="bg-red-100 border border-red-500 rounded-full text-orderNow text-sm poppins px-4 py-1 inline-block mb-4 ">
-            Lunch
-          </span>
-          <img
-            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-            src="/assets/lunch/lunch6.png"
-            alt=""
+
+          <CardPlato
+            tipo={"Lunch"}
+            imagen="/assets/lunch/lunch6.png"
+            nombre={"Healthy Meal Plan"}
+            descripcion={"Gay one the what walk then she. Demesne mention pr"}
+            precio={"S/83.99"}
+            tituloBotom={"Pedir ahora"}
           />
-          <div className="flex flex-col items-center my-3 space-y-2">
-            <h1 className="text-gray-900 poppins text-lg">healthy Meal Plan</h1>
-            <p className="text-gray-500 poppins text-sm text-center">
-              Gay one the what walk then she. Demesne mention pr
-            </p>
-            <h2 className="text-gray-900 poppins text-2xl font-bold">$83.99</h2>
-            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-              Order Now
-            </button>
-          </div>
+
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
@@ -390,9 +505,9 @@ function PopularProduct() {
                   exteriores
                 </p>
                 <p className="leading-[1.4] mb-[10px] text-sm mt-0">
-                  <a href="#" className="text-primary">
+                  <Link href="#" className="text-primary">
                     Leer más
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
@@ -416,9 +531,9 @@ function PopularProduct() {
                   preferencia
                 </p>
                 <p className="leading-[1.4] mb-[10px] text-sm mt-0">
-                  <a href="#" className="text-primary">
+                  <Link href="#" className="text-primary">
                     Leer más
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
@@ -442,9 +557,9 @@ function PopularProduct() {
                   la preferencia
                 </p>
                 <p className="leading-[1.4] mb-[10px] text-sm mt-0">
-                  <a href="#" className="text-primary">
+                  <Link href="#" className="text-primary">
                     Leer más
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
@@ -754,33 +869,33 @@ function BlogSection() {
             </h2>
           </div>
           <div className="basis-auto lg:w-1/2 lg:text-right text-left w-full">
-            <a href="/blog" className="font-semibold text-primary underline">
+            <Link href="/blog" className="font-semibold text-primary underline">
               Ver todos los Posts
-            </a>
+            </Link>
           </div>
         </div>
 
         <div className="flex flex-wrap mt-0 mx-[-0.75px]">
           <div className="flex basis-auto lg:w-[33.33%] xs:w-full mb-0 px-3">
             <div className="post-entry">
-              <a href="#" className="block mb-5 text-primary ">
+              <Link href="#" className="block mb-5 text-primary ">
                 <img
                   src="assets/muebles/cama2.png"
                   alt="Image"
                   className="rounded-[20px] max-w-full h-auto align-middle"
                 />
-              </a>
+              </Link>
               <div className="px-[15px]">
                 <h3 className="text-base font-semibold mb-2 mt-0 leading-[1.2]">
-                  <a href="#" className="text-primary ">
+                  <Link href="#" className="text-primary ">
                     Cama para Dormitorio de 2 Plazas
-                  </a>
+                  </Link>
                 </h3>
                 <div className="text-sm">
                   <span>
-                    <a href="#" className="font-semibold text-primary">
+                    <Link href="#" className="font-semibold text-primary">
                       Nota:{" "}
-                    </a>
+                    </Link>
                   </span>{" "}
                   <span>Todas las imágenes son referenciales</span>
                 </div>
@@ -790,24 +905,24 @@ function BlogSection() {
 
           <div className="flex basis-auto lg:w-[33.33%] xs:w-full mb-0 px-3 my-12 lg:my-0">
             <div className="post-entry">
-              <a href="#" className="block mb-5 text-primary ">
+              <Link href="#" className="block mb-5 text-primary ">
                 <img
                   src="assets/muebles/mesadenoche2.png"
                   alt="Image"
                   className="rounded-[20px] max-w-full h-auto align-middle"
                 />
-              </a>
+              </Link>
               <div className="px-[15px]">
                 <h3 className="text-base font-semibold mb-2 mt-0 leading-[1.2]">
-                  <a href="#" className="text-primary ">
+                  <Link href="#" className="text-primary ">
                     Mesa de Centro, diseño futurista
-                  </a>
+                  </Link>
                 </h3>
                 <div className="text-sm">
                   <span>
-                    <a href="#" className="font-semibold text-primary">
+                    <Link href="#" className="font-semibold text-primary">
                       Nota:{" "}
-                    </a>
+                    </Link>
                   </span>{" "}
                   <span>Todas las imágenes son referenciales</span>
                 </div>
@@ -817,24 +932,24 @@ function BlogSection() {
 
           <div className="flex basis-auto lg:w-[33.33%] xs:w-full mb-0 px-3 my-12 lg:my-0">
             <div className="post-entry">
-              <a href="#" className="block mb-5 text-primary ">
+              <Link href="#" className="block mb-5 text-primary ">
                 <img
                   src="assets/muebles/mesacomedor.png"
                   alt="Image"
                   className="rounded-[20px] max-w-full h-auto align-middle"
                 />
-              </a>
+              </Link>
               <div className="px-[15px]">
                 <h3 className="text-base font-semibold mb-2 mt-0 leading-[1.2]">
-                  <a href="#" className="text-primary ">
+                  <Link href="#" className="text-primary ">
                     Mesa de Comedor - 6 personas
-                  </a>
+                  </Link>
                 </h3>
                 <div className="text-sm">
                   <span>
-                    <a href="#" className="font-semibold text-primary">
+                    <Link href="#" className="font-semibold text-primary">
                       Nota:{" "}
-                    </a>
+                    </Link>
                   </span>{" "}
                   <span>Todas las imágenes son referenciales</span>
                 </div>
@@ -850,7 +965,7 @@ function BlogSection() {
 export default function Home() {
   return (
     <>
-      <PrincipalBanner />
+      <BannerPrincipal />
 
       <Menu />
 
