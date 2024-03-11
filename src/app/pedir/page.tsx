@@ -3,6 +3,7 @@ import { Container } from "../../components/container";
 import { BannerSecundario } from "../../components/banner";
 import { TituloSeccion } from "../../components/titulo";
 import { CardPlato } from "@/components/card";
+import { CardPlatoWithoutType } from "@/components/cardwt";
 
 function Menu() {
     return (
@@ -17,99 +18,48 @@ function Menu() {
                         imagen={"/assets/lunch/lunch1.png"}
                         nombre={"Beef Steak"}
                         descripcion={"   Gay one the what walk then she. Demesne mention pr"}
-                        precio={"S/. 15.99<"}
+                        precio={"S/. 15.99"}
                         tituloBotom={"Pedir ahora"} />
 
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch2.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">
-                                Honey with Peppers
-                            </h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 7.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img
-                            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch3.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">
-                                Tarrgaon Rubbed Salmon
-                            </h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 7.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img
-                            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch4.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">Indian Lunch</h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 8.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img
-                            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch5.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">
-                                Fried Chicken Bento
-                            </h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 13.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img
-                            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch6.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">healthy Meal Plan</h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 83.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
+                    <CardPlato
+                        tipo={"Lunch"}
+                        imagen={"/assets/lunch/lunch2.png"}
+                        nombre={"Honey with Peppers"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 7.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlato
+                        tipo={"Lunch"}
+                        imagen={"/assets/lunch/lunch3.png"}
+                        nombre={"Tarrgaon Rubbed Salmon"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 7.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlato
+                        tipo={"Lunch"}
+                        imagen={"/assets/lunch/lunch4.png"}
+                        nombre={"Indian Lunch"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 8.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlato
+                        tipo={"Lunch"}
+                        imagen={"/assets/lunch/lunch5.png"}
+                        nombre={"Fried Chicken Bento"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 13.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlato
+                        tipo={"Lunch"}
+                        imagen={"/assets/lunch/lunch6.png"}
+                        nombre={"healthy Meal Plan"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 83.99"}
+                        tituloBotom={"Pedir ahora"} />
                 </div>
             </Container>
         </section>
@@ -123,56 +73,26 @@ function Promociones() {
                 <TituloSeccion texto={"Promociones"} />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105" src="/assets/lunch/lunch1.png" alt="" />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">Beef Steak</h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 15.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch2.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">
-                                Honey with Peppers
-                            </h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 7.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img
-                            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch3.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">
-                                Tarrgaon Rubbed Salmon
-                            </h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 7.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
+                    <CardPlatoWithoutType
+                        imagen={"/assets/lunch/lunch1.png"}
+                        nombre={"Beef Steak"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 15.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/lunch/lunch2.png"}
+                        nombre={"Honey with Peppers"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 7.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/lunch/lunch3.png"}
+                        nombre={"Tarrgaon Rubbed Salmon"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 7.99"}
+                        tituloBotom={"Pedir ahora"} />
                 </div>
             </Container>
         </section>
@@ -186,112 +106,50 @@ function Especiales() {
                 <TituloSeccion texto={"Los ejecutivos"} />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105" src="/assets/lunch/lunch1.png" alt="" />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">Beef Steak</h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 15.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch2.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">
-                                Honey with Peppers
-                            </h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 7.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img
-                            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch3.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">
-                                Tarrgaon Rubbed Salmon
-                            </h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 7.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img
-                            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch4.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">Indian Lunch</h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 8.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img
-                            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch5.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">
-                                Fried Chicken Bento
-                            </h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 13.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img
-                            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/lunch/lunch6.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">healthy Meal Plan</h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 83.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
+                    <CardPlatoWithoutType
+                        imagen={"/assets/lunch/lunch1.png"}
+                        nombre={"Beef Steak"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 15.90"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/lunch/lunch2.png"}
+                        nombre={"Honey with Peppers"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 7.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/lunch/lunch3.png"}
+                        nombre={"Tarrgaon Rubbed Salmon"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 7.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/lunch/lunch4.png"}
+                        nombre={"Indian Lunch"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 8.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/lunch/lunch5.png"}
+                        nombre={"Fried Chicken Bento"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 13.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/lunch/lunch6.png"}
+                        nombre={"healthy Meal Plan"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 83.99"}
+                        tituloBotom={"Pedir ahora"} />
                 </div>
             </Container>
-        </section>
+        </section >
     );
 }
 
@@ -302,54 +160,34 @@ function Postres() {
                 <TituloSeccion texto={"Postres"} />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105" src="/assets/arrozconleche.png" alt="" />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">Arroz con leche</h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 15.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105" src="/assets/mazamorra.png" alt="" />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg"> Mazamorra morada </h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 7.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105" src="/assets/picarones.png" alt="" />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg"> Picarones </h1>
-                            <p className="text-gray-500 poppins text-sm text-center"> Gay one the what walk then she. Demesne mention pr </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 7.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105"> Pedir ahora </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105" src="/assets/arrozzambito.png" alt="" />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">Arroz zambito</h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 8.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/arrozconleche.png"}
+                        nombre={"Arroz con leche"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 5.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/mazamorra.png"}
+                        nombre={"Mazamorra morada"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 6.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/picarones.png"}
+                        nombre={"Picarones"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 4.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/arrozzambito.png"}
+                        nombre={"Arroz zambito"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 5.99"}
+                        tituloBotom={"Pedir ahora"} />
                 </div>
             </Container>
         </section>
@@ -363,82 +201,47 @@ function Bebidas() {
                 <TituloSeccion texto={"Bebidas"} />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105" src="/assets/inkakola.png" alt="" />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">Inka Kola</h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 15.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105" src="/assets/cocacola.png" alt="" />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg"> Coca Cola </h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 7.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105" src="/assets/fanta.png" alt="" />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg"> Fanta </h1>
-                            <p className="text-gray-500 poppins text-sm text-center"> Gay one the what walk then she. Demesne mention pr </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 7.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105"> Pedir ahora </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img
-                            className="w-64 mx-auto transform transition duration-300 hover:scale-105"
-                            src="/assets/limonada.png"
-                            alt=""
-                        />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">Limonada</h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 8.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105" src="/assets/chichamorada.png" alt="" />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg">Chicha Morada</h1>
-                            <p className="text-gray-500 poppins text-sm text-center">
-                                Gay one the what walk then she. Demesne mention pr
-                            </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 83.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
-                    <div className="bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-                        <img className="w-64 mx-auto transform transition duration-300 hover:scale-105" src="/assets/maracuya.png" alt="" />
-                        <div className="flex flex-col items-center my-3 space-y-2">
-                            <h1 className="text-gray-900 poppins text-lg"> Maracuya </h1>
-                            <p className="text-gray-500 poppins text-sm text-center">Gay one the what walk then she. Demesne mention pr </p>
-                            <h2 className="text-gray-900 poppins text-2xl font-bold">S/. 13.99</h2>
-                            <button className="bg-orderNow text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105">
-                                Pedir ahora
-                            </button>
-                        </div>
-                    </div>
+                    <CardPlatoWithoutType
+                        imagen={"/assets/inkakola.png"}
+                        nombre={"Inka Kola"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 2.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/cocacola.png"}
+                        nombre={"Coca Cola"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 2.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/fanta.png"}
+                        nombre={"Fanta"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 2.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/limonada.png"}
+                        nombre={"Limonada"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 4.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/chichamorada.png"}
+                        nombre={"Chicha Morada"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 4.99"}
+                        tituloBotom={"Pedir ahora"} />
+
+                    <CardPlatoWithoutType
+                        imagen={"/assets/maracuya.png"}
+                        nombre={"Maracuya"}
+                        descripcion={"   Gay one the what walk then she. Demesne mention pr"}
+                        precio={"S/. 4.99"}
+                        tituloBotom={"Pedir ahora"} />                
                 </div>
             </Container>
         </section>
